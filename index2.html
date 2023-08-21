@@ -1,0 +1,659 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+  /*  */
+  /* regras especiais */
+  @font-face {
+    font-family:'NoSacry';
+    src: url('fonte/NoScary.ttf') format('truetype');
+    font-whight: normal;
+    font-style: normal;
+}
+@keyframes pulsing {
+    from {
+      transform: scale(1);
+    }
+    to {
+      transform: scale(1.2);
+    }
+  }
+  /*regra de pulsação da fonte*/
+.h1-pulsing {
+  animation-name: pulsing;
+  animation-duration: 30s;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+}
+
+  .container {
+    display: flex;
+  }
+
+  .left {
+    flex:3;
+    padding: 50px;
+   
+	
+  }
+
+  .right {
+    flex: 2;
+    padding: 2px;
+   
+	
+  }
+  img{
+	float: right;
+	width: 100%;
+	
+  }
+ 
+  .cxtxt{
+  border: solid black;
+  background-color: aliceblue;
+  color: black;
+  padding: 10px;
+  text-align: center;
+}
+body{
+  background-image: url('inf.png');
+ }
+  
+  
+ 
+h1 {
+  font-weight: bold;
+  margin: auto;
+  text-align: center;
+  font-family:'NoSacry';
+  font-size: 100px;
+  text-align: center;
+  text-shadow: 10px 10px 10px rgb(228, 222, 222);
+   color: black;
+}
+
+</style>
+</head>
+<body>
+<h1>LABIRINTO</h1>
+	<div class="container">
+    <div class="left">
+	
+	<div id="escolha0">
+        <div class="cxtxt" id="txtesc0">
+            <div id="texto0"></div>
+        </div>
+        <div id="esc123" style="display:none;" class="btesc">
+          <button class="meu-botao" onclick="esc1()">Explore o corredor à sua esquerda</button>
+          <button class="meu-botao" onclick="esc2()">Tome coragem e adentre o corredor à sua frente</button>
+          <button class="meu-botao" onclick="esc3()">Arrisque sua sanidade e se embrenhe no corredor à sua direita</button>
+        </div>
+      </div>
+	  
+	   <div id="cam2" style="display:none;">
+        <div class="cxtxt" id="txtcam2">
+            <div id="textocam2"></div>
+        </div>
+        <div id="cam2abc" style="display:none;">
+          <button class="meu-botao" onclick="esc2a()">Tente encontrar uma fonte de luz</button>
+          <button class="meu-botao" onclick="esc2b()">Grite por ajuda</button>
+          <button class="meu-botao" onclick="esc2c()">Siga os sons misteriosos que ecoam pelo labirinto</button>
+        </div>
+      </div>
+	  
+	   <div id="cam3" style="display:none;">
+        <div class="cxtxt" id="txtcam3">
+            <div id="textocam3"></div>
+        </div>
+        <div id="cam3abc" style="display:none;">
+          <button class="meu-botao" onclick="esc3a()">Tente encontrar o caminho de volta ao ponto de partida</button>
+          <button class="meu-botao" onclick="esc3b()">Continue em frente, confiante em encontrar a saída</button>
+        </div>
+      </div>
+	  
+	  <div id="cam4" style="display:none;">
+        <div class="cxtxt" id="txtcam4">
+            <div id="textocam4"></div>
+        </div>
+        <div id="cam4abc" style="display:none;">
+          <button class="meu-botao" onclick="esc4a()">Siga as marcas de sangue para descobrir o que está acontecendo</button>
+          <button class="meu-botao" onclick="esc4b()">Ignore as marcas e continue explorando</button>
+        </div>
+      </div>
+	  
+	    <div id="cam5" style="display:none;">
+        <div class="cxtxt" id="txtcam5">
+            <div id="textocam5"></div>
+        </div>
+        <div id="cam5abc" style="display:none;">
+            <button class="meu-botao" onclick="esc5a()">Entre na porta entreaberta</button>
+            <button class="meu-botao" onclick="esc5b()">Evite a porta e continue</button>
+            <button class="meu-botao" onclick="esc5c()">- Grite por socorro novamente</button>
+        </div>
+    </div>
+	
+	 <div id="cam6" style="display:none;">
+      <div class="cxtxt" id="txtcam6">
+          <div id="textocam6"></div>
+      </div>
+      <div id="cam6abc" style="display:none;">
+          <button class="meu-botao" onclick="esc6a()">Explore a sala em busca de pistas</button>
+          <button class="meu-botao" onclick="esc6b()">Saia correndo da sala</button>
+          <button class="meu-botao" onclick="esc6c()">Sente-se no chão, desesperado</button>
+      </div>
+  </div>
+
+  <div id="cam7" style="display:none;">
+    <div class="cxtxt" id="txtcam7">
+        <div id="textocam7"></div>
+    </div>
+    <div id="cam7abc" style="display:none;">
+        <button class="meu-botao" onclick="esc7a()">Encontre uma passagem secreta</button>
+        <button class="meu-botao" onclick="esc7b()">Ignore a passagem e procure outra saída</button>
+        <button class="meu-botao" onclick="esc7c()">Questione se tudo é real</button>
+    </div>
+</div>
+  
+    <div id="cam8"style="display:none;">
+    <div class="cxtxt" id="txtcam8">
+        <div id="textocam8"></div>
+    </div>
+    <div id="cam8abc" style="display:none;">
+        <button class="meu-botao" onclick="esc8a()">Continue avançando para a luz</button>
+        <button class="meu-botao" onclick="esc8b()">Volte correndo com medo da luz</button>
+        <button class="meu-botao" onclick="esc8c()">Grite por ajuda</button>
+    </div>
+</div>
+
+<div id="cam9" style="display:none;">
+  <div class="cxtxt" id="txtcam9">
+      <div id="textocam9"></div>
+  </div>
+  <div id="cam9abc" style="display:none;">
+      <button class="meu-botao" onclick="esc9a()">9a</button>
+      <button class="meu-botao" onclick="esc9b()">9b</button>
+      <button class="meu-botao" onclick="esc9c()">9c</button>
+  </div>
+</div>
+
+<div id="cam10" style="display:none;">
+  <div class="cxtxt" id="txtcam10">
+      <div id="textocam10"></div>
+  </div>
+  <div id="cam10abc" style="display:none;">
+      <button class="meu-botao" onclick="esc10a()">Enfrente a figura</button>
+      <button class="meu-botao" onclick="esc10b()">Tente se esconder</button>
+      <button class="meu-botao" onclick="esc10c()">Tente acordar do pesadelo</button>
+  </div>
+</div>
+
+<div id="cam11" style="display:none;">
+  <div class="cxtxt" id="txtcam11">
+      <div id="textocam11"></div>
+  </div>
+  <div id="cam11abc" style="display:none;">
+      <button class="meu-botao" onclick="esc11a()">11a</button>
+      <button class="meu-botao" onclick="esc11b()">11b</button>
+      <button class="meu-botao" onclick="esc11c()">11c</button>
+  </div>
+</div>
+
+<div id="txt5a" style="display:none;">
+  <div class="cxtxt" id="txtcam5a">
+      <div id="texto5a"></div>
+  </div>
+</div>
+
+<div id="txt5b" style="display:none;">
+  <div class="cxtxt" id="txtcam5b">
+      <div id="texto5b"></div>
+  </div>
+</div>
+
+<div id="txt5c" style="display:none;">
+  <div class="cxtxt" id="txtcam5c">
+      <div id="texto5c"></div>
+  </div>
+</div>
+
+<div id="txt6a" style="display:none;">
+  <div class="cxtxt" id="txtcam6a">
+      <div id="texto6a"></div>
+  </div>
+</div>
+
+<div id="txt6b" style="display:none;">
+  <div class="cxtxt" id="txtcam6b">
+      <div id="texto6b"></div>
+  </div>
+</div>
+
+<div id="txt6c" style="display:none;">
+  <div class="cxtxt" id="txtcam6c">
+      <div id="texto6c"></div>
+  </div>
+</div>
+
+<div id="txt7a" style="display:none;">
+  <div class="cxtxt" id="txtcam7a">
+      <div id="texto7a"></div>
+  </div>
+</div>
+
+<div id="txt7b" style="display:none;">
+  <div class="cxtxt" id="txtcam7b">
+      <div id="texto7b"></div>
+  </div>
+</div>
+
+<div id="txt7c" style="display:none;">
+  <div class="cxtxt" id="txtcam7c">
+      <div id="texto7c"></div>
+  </div>
+</div>
+
+<div id="txt8a" style="display:none;">
+  <div class="cxtxt" id="txtcam8a">
+      <div id="texto8a"></div>
+  </div>
+</div>
+
+<div id="txt8b" style="display:none;">
+  <div class="cxtxt" id="txtcam8b">
+      <div id="texto8b"></div>
+  </div>
+</div>
+
+<div id="txt8c" style="display:none;">
+  <div class="cxtxt" id="txtcam8c">
+      <div id="texto8c"></div>
+  </div>
+</div>
+
+<div id="txt10a" style="display:none;">
+  <div class="cxtxt" id="txtcam10a">
+      <div id="texto10a"></div>
+  </div>
+</div>
+
+<div id="txt10b" style="display:none;">
+  <div class="cxtxt" id="txtcam10b">
+      <div id="texto10b"></div>
+  </div>
+</div>
+
+<div id="txt10c" style="display:none;">
+  <div class="cxtxt" id="txtcam10c">
+      <div id="texto10c"></div>
+  </div>
+</div>
+
+  <div id="rest" style="display:none;">
+      <button class="meu-botao" onclick="rest()">acorde!</button>
+  </div>
+ </section>
+     
+    </div>
+	
+    <div class="right">
+ 
+		<img src="HOSPITAL.png" alt="">
+	
+    </div>
+  </div>
+  
+  <script>
+      const textos = [
+		"Você acorda em um lugar estranho e escuro, cercado por corredores sinistros de um labirinto desconhecido. Seus olhos lutam para se ajustar à escuridão, você se sente perdido e angustiado. Desesperado por encontrar uma saída, três caminhos se estendem à sua frente.",   // 0
+		"Ao caminhar pelo corredor, a escuridão aumenta, e você sente uma presença passando por você. Sons sussurrantes ecoam, e um vulto passa à sua frente.",   // 1
+		"Caminhando pelo corredor, você sente uma presença e ouve sussurros. Seu coração acelera.",   // 2
+		"Desesperado por luz, você encontra uma lâmpada pendurada no teto, revelando marcas de sangue no chão.",   // 3
+		"Você grita por socorro, mas o som é absorvido pela escuridão. Uma porta entreaberta emite uma luz trêmula",   // 4
+		"Você segue os sussurros e fica preso em um corredor interminável. O medo cresce, e você se vê em uma sala escura",   // 5
+		"Ao olhar ao redor, você sente um vento gelado passando por uma passagem na parede. A incerteza toma conta.",   // 6
+		"Enquanto tenta achar uma saída, uma luz brilha no fim do corredor",   // 7
+		"cam9",   // 8
+		"Você segue as marcas de sangue e encontra uma figura sinistra.",  // 9
+		"cam11" ,  // 10
+		"Ao entrar pela porta, o chão cede e caio em um precipício escuro. O terror da queda enche meus sentidos. Olhos fechados, aguardando o impacto, finalmente os abro para me encontrar deitado em uma cama de hospital. Monitores piscam, tubos me cercam. Médicos frenéticos e uma aura de urgência preenchem a sala.Um médico explicou que eu estava em coma devido a um acidente terrível. A jornada pelo labirinto e a queda eram manifestações da minha luta interna. No entanto, ao abrir os olhos, não tenho certeza se acordei ou mergulhei mais fundo no pesadelo. A realidade e a ilusão se entrelaçam, o labirinto de horrores e a sala escura ainda ecoam em minha mente. O que resta é um terror constante, uma batalha para distinguir o sonho da realidade. No coma, permaneço preso em uma escuridão onde medo e confusão reinam, sem saber se despertarei ou se afundarei ainda mais nas profundezas do pesadelo", //11
+		"Ignorando a porta entreaberta, opto por seguir pelo corredor tenebroso. Cada passo é uma marcha lenta em direção a um abismo inescapável. De repente, o chão cede e caio em um precipício escuro. O terror da queda enche meus sentidos. Olhos fechados, aguardando o impacto, finalmente os abro para me encontrar deitado em uma cama de hospital. Monitores piscam, tubos me cercam. Médicos frenéticos e uma aura de urgência preenchem a sala.Um médico explicou que eu estava em coma devido a um acidente terrível. A jornada pelo labirinto e a queda eram manifestações da minha luta interna. No entanto, ao abrir os olhos, não tenho certeza se acordei ou mergulhei mais fundo no pesadelo. A realidade e a ilusão se entrelaçam, o labirinto de horrores e a sala escura ainda ecoam em minha mente. O que resta é um terror constante, uma batalha para distinguir o sonho da realidade. No coma, permaneço preso em uma escuridão onde medo e confusão reinam, sem saber se despertarei ou se afundarei ainda mais nas profundezas do pesadelo.", //12
+		"Grito por socorro, mas tudo ao meu redor mergulha na escuridão e uma figura distorcida aparece nas sombras. Ela parece se alimentar do meu medo, suas feições parecem distorcidas, contorcendo-se em um sorriso grotesco. E antes que eu possa reagir, ela se lança sobre mim, suas garras afiadas dilacerando o ar em direção à minha garganta. Minha tentativa de escapar falha quando suas garras me perfuram, e um arrepio agonizante percorre meu corpo. A escuridão ao meu redor parece se fechar enquanto luto em vão, meu sangue se misturando à sombra que me envolve. A última coisa que vejo são os olhos vazios da figura, agora repletos de triunfo, antes que a escuridão definitiva me envolva por completo. Minha existência chega a um fim grotesco, consumida pelo horror que não consigo compreender.Tento abrir os olhos com a última força que me resta. Estou deitado em uma cama de hospital. Monitores piscam, tubos me cercam. Médicos frenéticos e uma aura de urgência preenchem a sala. Um médico explica que estou em coma devido a um acidente terrível. No entanto, não lembro de nada disso, e só consigo mexer os olhos. Meu corpo parece não me obedecer. Agora não tenho certeza se acordei ou mergulhei mais fundo no pesadelo. A realidade e a ilusão se entrelaçam, o labirinto de horrores ainda ecoa em minha mente. O que resta é um terror constante, uma batalha para distinguir o sonho da realidade. Permaneço, preso onde medo e confusão reinam, sem saber se despertarei ou me afundarei ainda mais nas profundezas do pesadelo.", //13
+		"Movido pela esperança de encontrar uma saída, exploro cada canto em busca de alguma pista para escapar. Nesse ambiente sombrio, encontro uma maçaneta escondida. Giro-a com cautela e uma luz intensa começa a escapar pela porta conforme a abro. Atravesso a porta e sou abraçado pela luz. No entanto, ao invés de me ver de volta ao mundo real, percebo algo assustador: ainda estou imerso em um estado de coma, resultado terrível de um acidente de trânsito. As sombras e os sons do labirinto, a sala escura, tudo isso é uma representação do meu estado de consciência fragmentada. Ao invés de estar em um lugar físico, minha mente está aprisionada, tentando encontrar um caminho para a superfície da consciência.Enquanto tento me comunicar através de pequenos movimentos dos olhos, observo o mundo ao meu redor. A vida continua, as pessoas entram e saem da sala do hospital, médicos e enfermeiras trabalham incansavelmente para cuidar de mim. Estou lá, preso em meu próprio corpo inerte, uma testemunha silenciosa do drama que se desenrola à minha volta. Nas noites silenciosas, ainda sinto a presença das sombras, os sussurros perturbadores que ecoam em minha mente. O labirinto sombrio não me deixou, apenas mudou de forma, transformando-se em uma realidade ainda mais assustadora. A escuridão do coma é agora minha prisão, e as sombras, meus companheiros inquietantes.Enquanto o tempo passa, minha luta para retornar à vida consciente continua. A esperança e o medo se misturam, enquanto tento desesperadamente romper essa barreira que me separa do mundo exterior, sem saber se estou acordado ou continuo sonhando.", //14
+		"Uma sala escura à frente parece convidar, mas algo interno implora para não entrar. Ignorando a sala, corro, buscando escapar do que espreita na escuridão. No entanto, o chão cede e caio em um precipício escuro. O terror da queda enche meus sentidos. Olhos fechados, aguardando o impacto, finalmente os abro para me encontrar deitado em uma cama de hospital. Monitores piscam, tubos me cercam. Médicos frenéticos e uma aura de urgência preenchem a sala.Um médico explica que estou em coma devido a um acidente terrível. A jornada pelo labirinto e a queda eram manifestações da minha luta interna. No entanto, ao abrir os olhos, não tenho certeza se acordei ou mergulhei mais fundo no pesadelo. A realidade e a ilusão se entrelaçam, o labirinto de horrores e a sala escura ainda ecoam em minha mente. O que resta é um terror constante, uma batalha para distinguir o sonho da realidade. No coma, permaneço, preso em uma escuridão onde medo e confusão reinam, sem saber se despertarei ou se afundarei ainda mais nas profundezas do pesadelo.", //15
+		"No labirinto sombrio e opressivo, vago por corredores infinitos, a agonia crescendo a cada passo. Uma sala escura se apresenta à frente, convidando-me a entrar, mas algo dentro de mim grita para não fazê-lo. Desafiando meus instintos, decido adentrar, sentando-me no chão, desesperado e confuso.A escuridão parece consumir tudo, e o medo se transforma em uma sombra constante pairando sobre mim. Sinto-me perdido, sem saber o que fazer ou para onde ir. A incerteza e o desespero tomam conta, enquanto me vejo imerso em um estado de completa vulnerabilidade.Em um momento de resignação, fecho os olhos. A escuridão se aprofunda, e uma sensação de paz toma conta de mim. Quando finalmente abro os olhos, me encontro deitado em uma cama de hospital. Monitores piscam, os sons familiares de uma sala médica ecoam ao meu redor. Uma sensação de alívio e confusão se mistura, e um médico explica que estou em coma após um terrível acidente.No entanto, ao abrir os olhos para essa nova realidade, não tenho certeza se acordei de um sonho ou se ainda estou mergulhado nele. O labirinto, a sala escura, o desespero – tudo parece real demais para ser um mero sonho. A fronteira entre a realidade e a ilusão se dissolve, deixando-me preso em uma névoa de confusão.O terror permanece, não apenas pela situação em que me encontro, mas também pela incerteza do que é real. Agora habito um espaço entre o despertar e o sono, uma jornada assombrada pelo medo constante de não saber se estou vivendo ou preso em um pesadelo infinito.", //16
+		"Escolho desafiar o desconhecido e mergulhar na passagem secreta. Conforme avanço, a escuridão parece ganhar vida, dançando ao meu redor de maneiras impossíveis. O vento gelado sussurra segredos estranhos em meus ouvidos, enquanto portas se formam e desaparecem nas paredes ondulantes. Sinto-me como se estivesse em um labirinto distorcido de minha própria mente, onde realidade e ilusão se entrelaçam. Cada passo me afunda mais fundo em um pesadelo surreal, onde o tempo se perde e a sanidade escapa por entre os dedos. **Essa foi a sua última escolha.**", //17
+		"Hesito em relação à passagem secreta e decido não entrar. No entanto, à medida que me afasto, uma sensação incômoda toma conta de mim. O ambiente ao meu redor começa a distorcer de maneira inexplicável, as cores se misturam em formas impossíveis e o vento gelado parece penetrar minha mente. Percebendo que algo está profundamente errado, tento fugir, mas não importa o quanto eu corra, permaneço preso em um pesadelo surreal que se retorce e se contorce, transformando minha realidade em uma miragem distorcida. **Essa foi a sua última escolha.**", //18
+		"Diante da passagem secreta, um arrepio percorre minha espinha. Uma onda de ansiedade toma conta de mim, e não consigo decidir se devo entrar ou ignorar. A incerteza me consome, e me sinto à beira da loucura. Cada detalhe ao meu redor parece distorcido, e começo a questionar a própria realidade. As paredes parecem dançar e os sons se transformam em murmúrios estranhos. Agarro-me à minha sanidade, lutando contra a sensação de que tudo pode ser um sonho ou um pesadelo. Cada pensamento se torna uma espiral, e me pergunto se algum dia encontrarei uma saída desse enigma perturbador. **Essa foi a sua última escolha.**", //19
+		"Seu desejo de escapar prevalece e você continua avançando em direção à luz brilhante, apenas para perceber que ela ilumina um beco sem saída. Você está preso no labirinto", //20
+		"O pânico toma conta e você volta correndo pelo caminho que veio, imaginando o que pode estar por trás daquela luz brilhante. A sensação de perigo cresce, e você acorda em um pesadelo, preso em coma.", //21
+		"Movido pelo desespero, você solta um grito agudo por ajuda, esperando que alguém possa ouvir. No entanto, o grito parece não ter efeito, e você percebe que algo está terrivelmente errado. Você se encontra preso em um pesadelo, incapaz de acordar, em comaS", //22
+		"Me aproximei lentamente, meu coração batendo alto o suficiente para quase abafar o som da minha própria respiração. A figura distorcida parecia se alimentar do meu medo, suas feições contorcendo-se em um sorriso grotesco. Antes que eu pudesse reagir, ela se lançou sobre mim, suas garras afiadas dilacerando o ar em direção à minha garganta. Minha tentativa de escapar falhou quando suas garras me perfuraram, e um arrepio agonizante percorreu meu corpo. A escuridão ao meu redor parecia se fechar enquanto eu lutava em vão, meu sangue se misturando à sombra que me envolvia. A última coisa que vi foram os olhos vazios da figura, agora repletos de triunfo, antes que a escuridão definitiva me envolvesse por completo. Minha existência chegou a um fim grotesco, consumida pelo horror que eu não conseguira compreender. Tentei abrir os olhos com a última força que me restava. Estou deitado em uma cama de hospital. Monitores piscam, tubos me cercam. Médicos frenéticos e uma aura de urgência preenchem a sala.Um médico explicou que eu estava em coma devido a um acidente terrível. No entanto, não lembro de nada disso, e só consigo mexer os olhos. Meu corpo parece não me obedecer. Agora não tenho certeza se acordei ou mergulhei mais fundo no pesadelo. A realidade e a ilusão se entrelaçam, o labirinto de horrores ainda ecoa em minha mente. O que resta é um terror constante, uma batalha para distinguir o sonho da realidade. Permaneço onde medo e confusão reinam, sem saber se despertarei ou me afundarei ainda mais nas profundezas do pesadelo.", //23
+		"Tento sair dali sem que aquela coisa me veja, mas de repente o chão cede e caio em um precipício escuro. O terror da queda enche meus sentidos. Olhos fechados, aguardando o impacto, finalmente os abro para me encontrar deitado em uma cama de hospital. Monitores piscam, tubos me cercam. Médicos frenéticos e uma aura de urgência preenchem a sala.Um médico explicou que eu estava em coma devido a um acidente terrível. A jornada pelo labirinto e a queda eram manifestações da minha luta interna. No entanto, ao abrir os olhos, não tenho certeza se acordei ou mergulhei mais fundo no pesadelo. A realidade e a ilusão se entrelaçam, o labirinto de horrores e a sala escura ainda ecoam em minha mente. O que resta é um terror constante, uma batalha para distinguir o sonho da realidade. No coma, permaneço preso em uma escuridão onde medo e confusão reinam, sem saber se despertarei ou se afundarei ainda mais nas profundezas do pesadelo.", //24
+		"Isso não pode ser real, penso, e tento me concentrar para acordar. No entanto, quando sinto que estou voltando para a realidade, de repente o chão cede e caio em um precipício escuro. O terror da queda enche meus sentidos. Olhos fechados, aguardando o impacto, finalmente os abro para me encontrar deitado em minha cama. Tudo não passava de um pesadelo. Melhor orar antes de dormir na próxima vez." //25
+
+
+
+
+
+
+
+    ];
+let index = 0;
+
+function digitar(texto, idElemento, idBotao) {
+const elemento = document.getElementById(idElemento);
+elemento.innerHTML = texto.slice(0, index);
+index++;
+
+if (index > texto.length) {
+clearTimeout(timeoutId);
+document.getElementById(idBotao).style.display = "block";
+} else {
+timeoutId = setTimeout(() => digitar(texto, idElemento, idBotao), 100);
+}
+}
+
+
+function esc1(){
+
+document.getElementById("cam2").style.display = "block";
+document.getElementById("escolha0").style.display = "none";
+
+index = 1; 
+const texto = textos[index];
+digitar(texto, "textocam2", "cam2abc");
+}
+function esc2(){
+
+document.getElementById("cam2").style.display = "block";
+document.getElementById("escolha0").style.display = "none";
+
+index = 1; 
+const texto = textos[index];
+digitar(texto, "textocam2", "cam2abc");
+}
+
+function esc3(){
+
+document.getElementById("cam2").style.display = "none";
+document.getElementById("escolha0").style.display = "none";
+document.getElementById("cam3").style.display = "block";
+
+index = 2; 
+const texto = textos[index];
+digitar(texto, "textocam3", "cam3abc");
+}
+
+function esc2a(){
+
+document.getElementById("cam4").style.display = "block";
+document.getElementById("cam2").style.display = "none";
+
+index = 3; 
+const texto = textos[index];
+digitar(texto, "textocam4", "cam4abc");
+}
+
+function esc2b(){
+
+document.getElementById("cam5").style.display = "block";
+document.getElementById("cam2").style.display = "none";
+
+index = 4; 
+const texto = textos[index];
+digitar(texto, "textocam5", "cam5abc");
+}
+
+function esc2c(){
+
+document.getElementById("cam6").style.display = "block";
+document.getElementById("cam2").style.display = "none";
+
+index = 5; 
+const texto = textos[index];
+digitar(texto, "textocam6", "cam6abc");
+}
+
+function esc3a(){
+
+document.getElementById("cam7").style.display = "block";
+document.getElementById("cam3").style.display = "none";
+
+index = 6; 
+const texto = textos[index];
+digitar(texto, "textocam7", "cam7abc");
+}
+
+function esc3b(){
+
+document.getElementById("cam8").style.display = "block";
+document.getElementById("cam3").style.display = "none";
+
+index = 7; 
+const texto = textos[index];
+digitar(texto, "textocam8", "cam8abc");
+}
+
+function esc4a(){
+
+document.getElementById("cam10").style.display = "block";
+document.getElementById("cam4").style.display = "none";
+
+index = 9; 
+const texto = textos[index];
+digitar(texto, "textocam10", "cam10abc");
+}
+
+function esc4a(){
+
+document.getElementById("cam10").style.display = "block";
+document.getElementById("cam4").style.display = "none";
+
+index = 9; 
+const texto = textos[index];
+digitar(texto, "textocam10", "cam10abc");
+}
+function esc4b(){
+
+document.getElementById("cam11").style.display = "block";
+document.getElementById("cam4").style.display = "none";
+
+index = 10; 
+const texto = textos[index];
+digitar(texto, "textocam11", "cam11abc");
+}
+
+function esc5a(){
+
+document.getElementById("txt5a").style.display = "block";
+document.getElementById("rest").style.display = "block";
+document.getElementById("cam5").style.display = "none";
+
+index = 11; 
+const texto = textos[index];
+digitar(texto, "texto5a");
+}
+
+function esc5b(){
+
+document.getElementById("txt5b").style.display = "block";
+document.getElementById("rest").style.display = "block";
+document.getElementById("cam5").style.display = "none";
+
+index = 12; 
+const texto = textos[index];
+digitar(texto, "texto5b");
+}
+
+function esc5c(){
+document.getElementById("txt5c").style.display = "block";
+document.getElementById("rest").style.display = "block";
+document.getElementById("cam5").style.display = "none";
+index = 13; 
+const texto = textos[index];
+digitar(texto, "texto5c");
+}
+
+function esc6a(){
+document.getElementById("txt6a").style.display = "block";
+document.getElementById("rest").style.display = "block";
+document.getElementById("cam6").style.display = "none";
+
+index = 14; 
+const texto = textos[index];
+digitar(texto, "texto6a");
+}
+
+function esc6b(){
+document.getElementById("txt6b").style.display = "block";
+document.getElementById("rest").style.display = "block";
+document.getElementById("cam6").style.display = "none";
+
+index = 15; 
+const texto = textos[index];
+digitar(texto, "texto6b");
+}
+
+function esc6c(){
+document.getElementById("txt6c").style.display = "block";
+document.getElementById("rest").style.display = "block";
+document.getElementById("cam6").style.display = "none";
+
+index = 16; 
+const texto = textos[index];
+digitar(texto, "texto6c");
+}
+
+function esc7a(){
+    document.getElementById("txt7a").style.display = "block";
+    document.getElementById("rest").style.display = "block";
+    document.getElementById("cam7").style.display = "none";
+
+    index = 17; 
+    const texto = textos[index];
+    digitar(texto, "texto7a");
+}
+
+function esc7b(){
+    document.getElementById("txt7b").style.display = "block";
+    document.getElementById("rest").style.display = "block";
+    document.getElementById("cam7").style.display = "none";
+
+    index = 18; 
+    const texto = textos[index];
+    digitar(texto, "texto7b");
+}
+
+function esc7c(){
+    document.getElementById("txt7c").style.display = "block";
+    document.getElementById("rest").style.display = "block";
+    document.getElementById("cam7").style.display = "none";
+
+    index = 19; 
+    const texto = textos[index];
+    digitar(texto, "texto7c");
+}
+
+function esc8a(){
+    document.getElementById("txt8a").style.display = "block";
+    document.getElementById("rest").style.display = "block";
+    document.getElementById("cam8").style.display = "none";
+
+    index = 20;
+    const texto = textos[index];
+    digitar(texto, "texto8a");
+}
+
+function esc8b(){
+    document.getElementById("txt8b").style.display = "block";
+    document.getElementById("rest").style.display = "block";
+    document.getElementById("cam8").style.display = "none";
+
+    index = 21; 
+    const texto = textos[index];
+    digitar(texto, "texto8b");
+}
+
+function esc8c(){
+    document.getElementById("txt8c").style.display = "block";
+    document.getElementById("rest").style.display = "block";
+    document.getElementById("cam8").style.display = "none";
+
+    index = 22; 
+    const texto = textos[index];
+    digitar(texto, "texto8c");
+}
+
+function esc10a(){
+    document.getElementById("txt10a").style.display = "block";
+    document.getElementById("rest").style.display = "block";
+    document.getElementById("cam10").style.display = "none";
+
+    index = 23; 
+    const texto = textos[index];
+    digitar(texto, "texto10a");
+}
+
+function esc10b(){
+    document.getElementById("txt10b").style.display = "block";
+    document.getElementById("rest").style.display = "block";
+    document.getElementById("cam10").style.display = "none";
+
+    index = 24; 
+    const texto = textos[index];
+    digitar(texto, "texto10b");
+}
+
+function esc10c(){
+    document.getElementById("txt10c").style.display = "block";
+    document.getElementById("rest").style.display = "block";
+    document.getElementById("cam10").style.display = "none";
+
+    index = 25; 
+    const texto = textos[index];
+    digitar(texto, "texto10c");
+}
+
+
+
+function rest(){
+
+
+document.getElementById("escolha0").style.display = "block";
+document.getElementById("txt5a").style.display = "none";
+document.getElementById("txt5b").style.display = "none";
+document.getElementById("txt5c").style.display = "none";
+document.getElementById("txt6a").style.display = "none";
+document.getElementById("txt6b").style.display = "none";
+document.getElementById("txt6c").style.display = "none";
+document.getElementById("txt7a").style.display = "none";
+document.getElementById("txt7b").style.display = "none";
+document.getElementById("txt7c").style.display = "none";
+document.getElementById("txt8a").style.display = "none";
+document.getElementById("txt8b").style.display = "none";
+document.getElementById("txt8c").style.display = "none";
+document.getElementById("txt10a").style.display = "none";
+document.getElementById("txt10b").style.display = "none";
+document.getElementById("txt10c").style.display = "none";
+	
+
+
+document.getElementById("rest").style.display = "none";
+
+index = 0; 
+const texto = textos[index];
+digitar(texto, "texto0", "esc123");
+}
+
+
+
+
+
+const textoInicial = textos[0];
+digitar(textoInicial, "texto0", "esc123");
+</script>
+</body>
+
+
+</html>

@@ -1,0 +1,94 @@
+      /*  */
+  /* regras especiais */
+  @font-face {
+    font-family:'NoSacry';
+    src: url('fonte/NoScary.ttf') format('truetype');
+    font-whight: normal;
+    font-style: normal;
+}
+@keyframes pulsing {
+    from {
+      transform: scale(1);
+    }
+    to {
+      transform: scale(1.2);
+    }
+  }
+  /*regra de pulsação da fonte*/
+.h1-pulsing {
+  animation-name: pulsing;
+  animation-duration: 30s;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+}
+section{
+  width: 50%;
+  margin-left: 5%;
+}
+body{
+  background-image: url("https://res.cloudinary.com/buzzfeed-brasil/image/upload/q_auto:best,f_auto,dpr_2.0,c_fill,w_320,h_230/image-uploads/quiz-question-alternative-image/jpeg/ad489a34ba5e34832b6154e9c7e34285.jpg");
+  background-size: cover;
+  animation: nevoa 5s ease-out infinite alternate;
+  font-family: Arial, sans-serif;
+  font-size: 16px;
+  line-height: 1.5;
+  margin: 0;
+  padding: 0;
+}
+h1 {
+  font-size: 24px;
+  font-weight: bold;
+  margin: auto;
+  text-align: center;
+  font-family:'NoSacry';
+  font-size: 100px;
+  text-align: center;
+  text-shadow: 10px 10px 10px rgb(228, 222, 222);
+}
+
+.meu-botao {
+  
+  border: solid black;
+  background-color: aliceblue;
+  color: black;
+  font-family:'NoSacry';
+  text-align: center;
+  padding: 10px;
+  margin-top: 5%;
+  margin-left: 20%;
+   
+      
+
+}
+.cxtxt{
+  border: solid black;
+  background-color: aliceblue;
+  color: black;
+  padding: 10px;
+  font-family:'NoSacry';
+  text-align: center;
+}
+aside{
+  float: right;
+  width: 50%;
+  margin: -15%;
+  
+
+ 
+}
+
+.container {
+    display: flex;
+  }
+
+  .left {
+    flex: 1;
+    padding: 20px;
+    background-color: #f0f0f0;
+  }
+
+  .right {
+    flex: 2;
+    padding: 20px;
+    background-color: #e0e0e0;
+  }

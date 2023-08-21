@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /*  */
+  /* regras especiais */
+@font-face {
+    font-family:'NoSacry';
+    src: url('fonte/NoScary.ttf') format('truetype');
+    font-whight: normal;
+    font-style: normal;
+}
+@keyframes pulsing {
+    from {
+      transform: scale(1);
+    }
+    to {
+      transform: scale(1.2);
+    }
+  }
+  /* body padrao das paginas de terror */
+body{
+  background-image: url("https://res.cloudinary.com/buzzfeed-brasil/image/upload/q_auto:best,f_auto,dpr_2.0,c_fill,w_320,h_230/image-uploads/quiz-question-alternative-image/jpeg/ad489a34ba5e34832b6154e9c7e34285.jpg");
+  background-size: cover;
+  animation: nevoa 5s ease-out infinite alternate;
+}
+/*regra de pulsação da fonte*/
+.h1-pulsing {
+  animation-name: pulsing;
+  animation-duration: 30s;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+}
+     header nav div {
+                display: flex;
+                justify-content: center;
+        }
+       h1 {
+            text-align: center;
+            font-family:'NoSacry';
+            font-size: 100px;
+            text-align: center;
+            text-shadow: 10px 10px 10px rgb(228, 222, 222);
+            margin: auto;
+        }
+        #h2pginicial{
+            font-family: Arial;
+            background-origin: padding-box;
+            text-align: center;
+            color: rgb(255, 248, 248);
+            margin: 10px;
+        }
+        
+        a {
+            padding: 30px;
+            text-decoration: none;
+            font-family:'NoSacry';
+            text-align: center;
+            text-decoration: none;
+            color: white;
+            margin: auto;
+            text-decoration: none;
+            border: none;
+            outline: none;
+        }
+        main {
+            display: flex;
+            justify-content: center;
+        }
+        section {
+            width: 70%;
+        }
+        aside {
+            width: 40%;
+        }
+        #txt{
+            border: solid black;
+            margin: 2px 30px 30px;
+            background-color: aliceblue;
+            color: black;
+            padding: 10px;
+        }
+        #escolha{
+            border: solid black;
+            color: aliceblue;
+            padding: 10px;
+            margin: 130px;
+            
+            
+        }
+        footer{
+            border: solid black;
+            text-align: center;
+            pflex-shrink: 0;
+            bottom: 0%;
+            
+            background-color: rgba(255, 255, 255, 0.6);
+            position: fixed;
+            text-align: center;
+            width: 100%;
+        }
+        
+    </style>
+</head>
+<body>
+    <header>
+        <h1 id="h1pginicial">RPG SOLO</h1>
+        <h2 id="h2pginicial">historias interativas</h2>
+        <nav>
+            <div>
+                <a href="#">LOGUIN</a>
+                <a href="temas.html">TEMAS</a>
+                <a href="index1.html">HISTORIAS</a>
+            </div>
+        </nav>
+    </header>
+    <main>
+        <section>
+            <article>
+            <div id="txt">
+                <div id="texto-digitado"></div>
+            </div>
+            </article>
+        </section>
+        <footer>wwww.rpgsolo.com </footer>
+    </main>
+</body>
+<script>
+    const texto = "Bem-vindo ao nosso site de histórias interativas, onde sua imaginação ganha vida! Embarque em aventuras emocionantes, explore mundos fantásticos e tome decisões que moldarão o rumo da história.Oferecemos uma vasta coleção de histórias envolventes, cuidadosamente criadas para cativar sua atenção e despertar sua curiosidade. Desde mistérios intrigantes até jornadas épicas, temos narrativas para todos os gostos e idades.O que nos torna únicos é a interatividade. Aqui, você é o protagonista e tem o poder de influenciar os desdobramentos da trama. A cada página, suas escolhas difíceis determinam os caminhos da história. Prepare-se para experiências personalizadas e emocionantes.Desfrute de uma narrativa fluida e empolgante enquanto mergulha nas histórias interativas do nosso site. Seja parte da ação, descubra segredos ocultos e desvende mistérios. Aproveite o poder de criar seu próprio destino e deixe sua imaginação voar!Não espere mais, venha explorar nosso site de histórias interativas e embarque em uma jornada única, onde cada escolha conta. Sua aventura está apenas começando!";
+    let index = 0;
+    
+    function digitar() {
+      document.getElementById("texto-digitado").innerHTML = texto.slice(0, index);
+      index++;
+    
+      if (index > texto.length) {
+        index = 0;
+      }
+    
+      setTimeout(digitar, 100);
+    }
+    
+    digitar();
+    </script>
+</html>
